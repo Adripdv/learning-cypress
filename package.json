@@ -1,0 +1,24 @@
+{
+  "name": "learning-cypress",
+  "version": "1.0.0",
+  "description": "This is a test project using Cypress Testing Framework!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adripdv/learning-cypress.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adripdv/learning-cypress/issues"
+  },
+  "homepage": "https://github.com/Adripdv/learning-cypress#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
