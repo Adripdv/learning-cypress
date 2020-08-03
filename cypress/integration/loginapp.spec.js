@@ -3,14 +3,16 @@ describe("UI TESTS", () => {
       //  cy.visit("www.amazon.com");
     //});
 
-    it("should load the login page correctly", () =>{
+    beforeEach(()=>{
         cy.visit("http://localhost:3003");
+    });
+
+    it("should load the login page correctly", () =>{
         cy.get('[data-cy=login-text]').should("have.length", 1);
         cy.get("[data-cy=login-text]").should("be.visible");
     });
 
     it("should not allow login when email is not provided", () =>{
-        cy.visit("http://localhost:3003");
         cy.get('[data-cy=password]').type("12345");
         cy.get('[data-cy=submit-button]').click();
         // Check that we are still on the same page 
@@ -19,7 +21,6 @@ describe("UI TESTS", () => {
       });
 
       it("should not allow login when password is not provided", () =>{
-        cy.visit("http://localhost:3003");
         cy.get('[data-cy=email]').type("john@example.com");
         cy.get('[data-cy=submit-button]').click();
         // Check that we are still on the same page 
@@ -28,7 +29,6 @@ describe("UI TESTS", () => {
       });
 
       it("should allow login when email & password is provided", () =>{
-        cy.visit("http://localhost:3003");
         cy.get('[data-cy=email]').type("john@example.com");
         cy.get('[data-cy=password]').type("12345");
         cy.get('[data-cy=submit-button]').click();
@@ -40,7 +40,6 @@ describe("UI TESTS", () => {
       });
 
       it("should contain correct input field values", () =>{
-        cy.visit("http://localhost:3003");
         cy.get('[data-cy=email]').type("smith@sample.com");
         cy.get('[data-cy=email]').should("have.value", "smith@sample.com");
         cy.get('[data-cy=password]').type("12345");
@@ -49,15 +48,19 @@ describe("UI TESTS", () => {
       });
 
       it("should logout successfuly", () =>{
-        cy.visit("http://localhost:3003");
         cy.get('[data-cy=email]').type("john@example.com");
         cy.get('[data-cy=password]').type("12345");
         cy.get('[data-cy=submit-button]').click();
         cy.get('[data-cy=log-out-btn]').click();
         // should be on the logout page
-        
+        cy.get('[data-cy=logout-txt]').should("contain", "You are now logged out!");
+        cy.get('[data-cy=logout-txt]').should("not.contain", "blahblah");   
       });
     
+      it("should have existing elements", () =>{
+        cy.get("[data-cy=login-text]").should("exist");
+        cy.get('[data-cy=logout-txt]').should("not.exist");
+      });
 
 });
 
