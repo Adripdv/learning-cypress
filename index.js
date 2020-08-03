@@ -4,8 +4,10 @@ const app = new express();
 
 const PORT = 3003;
 
-// to start the server run 'node index.js' in the command prompt 
-// //npm run cypress:open (to lunch cypress browser)
+//Delay by 3seconds when navigating from page to page 
+//app.use(function(req, res, next){
+    //setTimeout(next, 3000);
+//})
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
