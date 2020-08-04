@@ -21,5 +21,9 @@ app.post("/logout", (req, res) =>{
     res.sendFile(path.join(__dirname, "public", "logout.html"));
 });
 
+app.get("/noids", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "noids.html"));
+});
+
 
 app.listen(PORT, () => console.log('server started on por ${PORT}'));

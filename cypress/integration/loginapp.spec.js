@@ -5,6 +5,7 @@ describe("UI TESTS", () => {
 
     beforeEach(()=>{
         cy.visit("http://localhost:3003");
+        //cy.visit("https://adripdv-cypress-web.azurewebsites.net/");
     });
 
     it("should load the login page correctly", () =>{
@@ -60,7 +61,12 @@ describe("UI TESTS", () => {
       it("should have existing elements", () =>{
         cy.get("[data-cy=login-text]").should("exist");
         cy.get('[data-cy=logout-txt]').should("not.exist");
+        //cy.wait(5000);
       });
+
+      //it("should fail and create video and screenshot", () =>{
+        //cy.get("[data-cy=zzzzz]").should("exist");
+      //});
 
 });
 
